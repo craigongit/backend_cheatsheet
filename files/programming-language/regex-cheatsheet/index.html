@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Шпаргалка по регулярным выражениям - Backend Cheatsheet</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Backend Cheatsheet</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Files</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Databases</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../databases/mongodb-cheatsheet/" class="dropdown-item">Шпаргалка по MongoDB</a>
+</li>
+            
+<li>
+    <a href="../../databases/sql-cheatsheet/" class="dropdown-item">Шпаргалка по SQL</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../linux/bash-scripts-cheatsheet/" class="dropdown-item">Шпаргалка по Bash скриптам</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Programming language</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Шпаргалка по регулярным выражениям</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../linux/bash-scripts-cheatsheet/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Шпаргалка по регулярным выражениям</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Базовое применение</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Флаги</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Основной синтаксис</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_22" class="nav-link">Практика</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_23" class="nav-link">Дополнительные материалы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Шпаргалка по регулярным выражениям</h1>
+<div align="right"><a href="https://github.com/cheatsnake/backend-cheats#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0">Вернуться на главную страницу ⬆️</a></div>
+
+<p><strong>Содержание:</strong></p>
+<ul>
+<li><a href="#базовое-применение">Базовое применение</a></li>
+<li><a href="#флаги">Флаги</a></li>
+<li><a href="#основной-синтаксис">Основной синтаксис</a></li>
+<li><a href="#любой-символ-">Любой символ .</a></li>
+<li><a href="#перечень-">Перечень []</a></li>
+<li><a href="#исключающий-перечень-">Исключающий перечень [^]</a></li>
+<li><a href="#диапазон--">Диапазон [-]</a></li>
+<li><a href="#повторения-">Повторения *</a></li>
+<li><a href="#повторения--1">Повторения +</a></li>
+<li><a href="#необязательный-символ-">Необязательный символ ?</a></li>
+<li><a href="#количество-повторений-">Количество повторений {}</a></li>
+<li><a href="#диапазон-повторений-">Диапазон повторений {,}</a></li>
+<li><a href="#группировка-">Группировка ()</a></li>
+<li><a href="#логическое-или-">Логическое ИЛИ |</a></li>
+<li><a href="#экранирование-">Экранирование</a></li>
+<li><a href="#поиск-в-начале-строки-">Поиск в начале строки ^</a></li>
+<li><a href="#поиск-в-конце-строки-">Поиск в конце строки $</a></li>
+<li><a href="#классы-символов">Классы символов</a></li>
+<li><a href="#позиционные-проверки">Позиционные проверки</a></li>
+</ul>
+<p><a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F">Регулярные выражения</a> – это мощный инструмент для поиска и замены слов в тексте. Само регулярное выражение представляет из себя обычную строку составленную по определенным правилами. В общем виде она представляет из себя две косые черты <code>/ /</code>, где после первой черты идёт специальный паттерн для поиска, а после второй – набор флагов.</p>
+<p>Для тренировки использования регулярных выражений можно воспользоваться сайтом <a href="https://regex101.com/">Regex101.com</a>.</p>
+<p>Также можно воспользоваться возможностями для работы с регулярными выражениями в одном из языков программирования. Вот примеры для <a href="https://pythonru.com/primery/primery-primeneniya-regulyarnyh-vyrazheniy-v-python">Python</a>, <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript</a>, <a href="https://tproger.ru/articles/puteshestvie-v-golang-regexp/">Go</a>, <a href="https://java-blog.ru/kotlin/vvedenie-v-regulyarnye-vyrazheniya-kotlin">Kotlin</a>, <a href="https://metanit.com/sharp/tutorial/7.4.php">C#</a> и <a href="https://www.google.com/search?q=%D0%BA%D0%B0%D0%BA+%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C+%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5+%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F+%D0%B2+%5B%D0%B2%D0%B0%D1%88+%D1%8F%D0%B7%D1%8B%D0%BA+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%5D%5D">так далее</a></p>
+<h2 id="_2">Базовое применение</h2>
+<p>Возьмем для примера любой текст. Представим, что в этом тексте нам нужно найти все слова <code>London</code>. Это самый простой случай использования регулярных выражения, нам всего лишь необходимо вписать нужное слово между косыми чертами:</p>
+<p align="center"><img src="https://i.ibb.co/cCsd7ss/Pasted-image-20221016151349.png" alt="Regex example"/></p>
+
+<h2 id="_3">Флаги</h2>
+<p>Флаги влияют на результат поиска. Их всего 5 штук:</p>
+<ul>
+<li><code>i</code> – позволяет игнорировать регистры букв (нет разницы между <em>A</em> и <em>a</em>).</li>
+<li><code>g</code> – позволяет искать все совпадения в тексте, без него – только первое.</li>
+<li><code>m</code> – включение многострочного режима (влияет только на поведение <code>^</code> и <code>$</code>).</li>
+<li><code>s</code> – текст трактуется как одна строка, в этом случае метасимволу <code>.</code> (точка) соответствует любой одиночный символ, включая символ новой строки.</li>
+<li><code>u</code> – unicode-трактовка. Выражение может содержать специальные паттерны, характерные для юникода.</li>
+</ul>
+<h2 id="_4">Основной синтаксис</h2>
+<h3 id="_5">Любой символ <code>.</code></h3>
+<p>На месте точки может быть любой символ. Количеством точек можно определять длину слов.</p>
+<pre><code class="language-js">/t..k/g
+</code></pre>
+<blockquote>
+<p>take look team <ins>took</ins> hike track <ins>teak</ins> time</p>
+</blockquote>
+<h3 id="_6">Перечень <code>[]</code></h3>
+<p>Позволяют указать определенный перечень символов.</p>
+<pre><code class="language-js">/t[aoi]k/g
+</code></pre>
+<blockquote>
+<p>tek <ins>tok</ins> tdk <ins>tak</ins> <ins>tik</ins> tuk tyk took taoik</p>
+</blockquote>
+<h3 id="_7">Исключающий перечень <code>[^]</code></h3>
+<p>Позволяет исключить определенный набор символ из поиска, используется вместе с квадратными скобками.</p>
+<pre><code class="language-js">/ba[^td]/g
+</code></pre>
+<blockquote>
+<p><ins>ban</ins> <ins>bag</ins> bat <ins>bas</ins> bad</p>
+</blockquote>
+<h3 id="-">Диапазон <code>[-]</code></h3>
+<p>Указывает диапазон с первого по последний символ (включительно) в алфавитном порядке.</p>
+<pre><code class="language-js">/[a-d]../g
+</code></pre>
+<blockquote>
+<p>ost hst <ins>ast</ins> fst <ins>cst</ins> <ins>bst</ins></p>
+</blockquote>
+<p>Аналогично работает с цифрами:</p>
+<pre><code class="language-js">/201[5-9]/g
+</code></pre>
+<blockquote>
+<p>2010 2012 <ins>2015</ins> <ins>2017</ins> <ins>2019</ins> 2022</p>
+</blockquote>
+<h3 id="_8">Повторения <code>*</code></h3>
+<p>Звездочка после символа указывает, что данный символ может отсутствовать, либо совпадать один или более раз.</p>
+<pre><code class="language-js">/wo*w/g
+</code></pre>
+<blockquote>
+<p><ins>wow</ins> waw wiw <ins>woooow</ins> wawe <ins>ww</ins> <ins>woow</ins></p>
+</blockquote>
+<h3 id="_9">Повторения <code>+</code></h3>
+<p>Плюс после символа указывает, что данный символ должен присутствовать один или более раз.</p>
+<pre><code class="language-js">/go+gle/g
+</code></pre>
+<blockquote>
+<p><ins>google</ins> ggle <ins>gogle</ins> gugle g00gle <ins>goooogle</ins></p>
+</blockquote>
+<h3 id="_10">Необязательный символ <code>?</code></h3>
+<p>Вопросительный знак после символа указывает, что данный символ является не обязательным (может либо отсутствовать, либо встрачаться только один раз).</p>
+<pre><code class="language-js">/bou?nd/g
+</code></pre>
+<blockquote>
+<p><ins>bond</ins> <ins>bound</ins> bouuund boynd</p>
+</blockquote>
+<h3 id="_11">Количество повторений <code>{}</code></h3>
+<p>Чтобы указать точное количеcтво повторений, необходимо после символа записать фигурные скобки с нужным числом.</p>
+<pre><code class="language-js">/bo{3}m/g
+</code></pre>
+<blockquote>
+<p>boom bom <ins>booom</ins> bm boooom</p>
+</blockquote>
+<h3 id="_12">Диапазон повторений <code>{,}</code></h3>
+<p>Чтобы указать диапазон повторений, необходимо после символа записать фигурный скобки с нужным диапазоном, разделенным запятой.</p>
+<pre><code class="language-js">/lo{2,4}k/g
+</code></pre>
+<blockquote>
+<p>lok <ins>look</ins> lk <ins>loook</ins> <ins>looook</ins> loooooook</p>
+</blockquote>
+<p>Верхнюю границу можно опускать. Например, запись <code>a{3,}</code> говорит о том, что символ <em>a</em> должен встречаться не менее трёх раз.</p>
+<h3 id="_13">Группировка <code>()</code></h3>
+<p>Скобки позволяют сгруппировать любую последовательность символов, чтобы в дальнейшем обращается к ним используя выражение <code>\число</code>, где число - порядковый номер сгруппированной последовательности.</p>
+<pre><code class="language-js">/(la)-\1{2}-\1{3}/g // Группируем выражение &quot;la&quot; и затем, обращаемся к нему через &quot;\1&quot;
+</code></pre>
+<blockquote>
+<p>la-laaa-<ins>la-lala-lalala</ins>-lalala-la-la-la</p>
+</blockquote>
+<pre><code class="language-js">/(la)-\1-(laa)-\2/g
+</code></pre>
+<blockquote>
+<p>laa-la-laa-<ins>la-la-laa-laa</ins>-lalal</p>
+</blockquote>
+<p>Чтобы игнорировать сохранение группы используется конструкция <code>(?:)</code>.</p>
+<pre><code class="language-js">/(?:abc)-(test),\1,\1/g // В данном случае группа &quot;abc&quot; не будет сохранена, поэтому первый индекс указывает на &quot;test&quot;.
+</code></pre>
+<blockquote>
+<p>abc,test-<ins>abc-test,test,test</ins>-abc-test</p>
+</blockquote>
+<p>Группам можно задавать любые имена. Для этого используется конструкция - <code>(?P&lt;Name&gt;...)</code>, где Name - название, ... - любая последовательность символов. Для обращения к именованным группам используется конструкция - <code>(?P=Name)</code>.</p>
+<pre><code class="language-js">/(?P&lt;seven&gt;7{3})-(?P=seven){2}-(?P=seven)/g
+</code></pre>
+<blockquote>
+<p>7777-77-7777777-<ins>777-777777-777</ins>-777-7-7-7-7777-7</p>
+</blockquote>
+<p>Если у Вас возникли трудности с пониманием группировки, советую <a href="https://youtu.be/W9CffcsYpAU">посмотреть данное видео</a>.</p>
+<h3 id="_14">Логическое ИЛИ <code>|</code></h3>
+<p>Вертикальная черта позволяет указывать альтернативные варианты для поиска. Это чем-то похоже на использование квадратных скобок <code>[abc]</code>, но только вертикальная черта может работать с целыми словами и выражениями, а не только с отдельными символами.</p>
+<pre><code class="language-js">/yes|no/g
+</code></pre>
+<blockquote>
+<p><ins>yes</ins>,maybe,<ins>no</ins>,idk,ok</p>
+</blockquote>
+<h3 id="_15">Экранирование <code>\</code></h3>
+<p>Для того, чтобы использовать в поиске специальные символы <code>{} [] / \ + *. $ ^ |?</code>, необходимо поставить впереди знак косой черты <code>\</code>.</p>
+<pre><code class="language-js">/\.|\?/g // Поиск точек &quot;.&quot; или знаков вопроса &quot;?&quot;
+</code></pre>
+<blockquote>
+<p>What now<ins>?</ins> What next<ins>?</ins> Times up<ins>.</ins> Wake up<ins>.</ins> </p>
+</blockquote>
+<h3 id="_16">Поиск в начале строки <code>^</code></h3>
+<p>Символ каретки в регулярном выражении говорит о том, что поиск производится только по началу строк.</p>
+<pre><code class="language-js">/^[0-9]*/gm // Поиск чисел которые находятся в начале строки
+</code></pre>
+<blockquote>
+<p><ins>1</ins>. Apples x10 <br>
+<ins>2</ins>. Cookies x5 <br>
+<ins>3</ins>. Eggs x7</p>
+</blockquote>
+<h3 id="_17">Поиск в конце строки <code>$</code></h3>
+<p>Символ доллара в регулярном выражении говорит о том, что поиск производится только по концу строк.</p>
+<pre><code class="language-js">/com|net/gm
+</code></pre>
+<blockquote>
+<p>google.<ins>com</ins> <br>
+nodejs.org <br>
+sourceforge.<ins>net</ins></p>
+</blockquote>
+<h3 id="_18">Классы символов</h3>
+<p>Для более удобного поиска целого класса символов существуют встроенные обозначения.</p>
+<h4 id="w">Любой словесный символ <code>\w</code></h4>
+<p>Обе записи ниже эквивалентны.</p>
+<pre><code class="language-js">/[a-zA-Z0-9_]/g
+</code></pre>
+<pre><code class="language-js">/\w/g
+</code></pre>
+<blockquote>
+<p><ins>some</ins> <ins>random</ins> <ins>words</ins> <ins>for</ins> <ins>example</ins></p>
+</blockquote>
+<h4 id="w_1">Любой не словесный символ <code>\W</code></h4>
+<pre><code class="language-js">/[^a-zA-Z0-9_]/g
+</code></pre>
+<pre><code class="language-js">/\W/g
+</code></pre>
+<blockquote>
+<p>developer_2022<ins>@</ins>gmail<ins>.</ins>com</p>
+</blockquote>
+<h4 id="d">Любая цифра <code>\d</code></h4>
+<pre><code class="language-js">/[0-9]/g
+</code></pre>
+<pre><code class="language-js">/\d/g
+</code></pre>
+<blockquote>
+<p>developer_<ins>2022</ins>@gmail.com</p>
+</blockquote>
+<h4 id="d_1">Любой символ кроме цифр <code>\D</code></h4>
+<pre><code class="language-js">/[^0-9]/g
+</code></pre>
+<pre><code class="language-js">/\D/g
+</code></pre>
+<blockquote>
+<p><ins>developer_</ins>2022<ins>@gmail.com</ins></p>
+</blockquote>
+<h4 id="s">Пробел <code>\s</code></h4>
+<p>К пробелам также относятся различные символы переноса строк.</p>
+<pre><code class="language-js">/[\r\n\t\f\v ]/g
+</code></pre>
+<pre><code class="language-js">/\s/g
+</code></pre>
+<h4 id="s_1">Любой символ кроме пробела <code>\S</code></h4>
+<pre><code class="language-js">/[^\r\n\t\f\v ]/g
+</code></pre>
+<pre><code class="language-js">/\S/g
+</code></pre>
+<h3 id="_19">Позиционные проверки</h3>
+<p>Для того, чтобы найти фразу, которая должна находится до или после другой фразы используются позиционные проверки (lookarounds).</p>
+<h4 id="_20">Опережающие проверки <code>(?=)</code> <code>(?!)</code></h4>
+<p>Чтобы найти выражение Х после которого стоит выражение Y, используется конструкция <code>X(?=Y)</code>.</p>
+<pre><code class="language-js">/\d+(?=€)/g
+</code></pre>
+<blockquote>
+<p>200$ <ins>750</ins>€ 100$ <ins>330</ins>€ 550$</p>
+</blockquote>
+<p>Чтобы найти выражение Х после которого НЕ стоит выражение Y, используется конструкция <code>X(?!Y)</code>.</p>
+<pre><code class="language-js">/\d{4,}(?!€)/g
+</code></pre>
+<blockquote>
+<p>This car was costed about 7000€ in <ins>2015</ins></p>
+</blockquote>
+<h4 id="_21">Ретроспективные проверки <code>(?&lt;=)</code> <code>(?&lt;!)</code></h4>
+<p>Чтобы найти выражение X перед которым стоит выражение Y, используется конструкция <code>(?&lt;=Y)X</code>.</p>
+<pre><code class="language-js">/(?&lt;=:)\d+/g 
+</code></pre>
+<blockquote>
+<p>{"id":<ins>4</ins>,"value":<ins>123</ins>,name:"test"}</p>
+</blockquote>
+<p>Чтобы найти выражение X перед которым НЕ стоит выражение Y, используется конструкция <code>(?&lt;!Y)X</code>.</p>
+<pre><code class="language-js">/(?&lt;!\$)\d+/g
+</code></pre>
+<blockquote>
+<p>$5 $6 $7 <ins>2019</ins> <ins>2009</ins> <ins>1999</ins></p>
+</blockquote>
+<h2 id="_22">Практика</h2>
+<p>Потратьте немного времени на закрепление изученного материала. Напишите простую библиотеку на Вашем любимом языке программирования, которая будет выполнять валидации (проверки) заданных строк. Например, на соответствие электронной почты или номера телефона. Напишите валидатор для паролей, чтобы он соответствовал заданным требованиям по длине, наличию специальных символов, заглавных букв или цифр. Это будет вдвойне полезным занятием, поскольку в будущем вы сможете использовать эту библиотеку в Ваших приложениях.</p>
+<p>Дополнительно по запросу в Google – <em>regex practice</em>, можно найти много интересных заданий на тему регулянрых выражений.</p>
+<h2 id="_23">Дополнительные материалы</h2>
+<ol>
+<li>📄 <a href="https://github.com/aloisdg/awesome-regex"><strong>Awesome Regex</strong> – GitHub</a></li>
+<li>📺 <a href="https://youtu.be/ZxWfQW32dIE"><strong>Регулярные выражения в SEO: где и как применяются</strong> – YouTube</a></li>
+<li>📘 <a href="https://www.litmir.me/data/Book/0/156000/156298/Goiverts_Yan_Regulyarnye_vyracheniya._Sbornik_receptov_%5BPodrobnye_resheniya_na_vosmi_yazykah_programmirova_Litmir.net_bid156298_original.pdf"><strong>Регулярные выражения. Сборник рецептов</strong> – Ян Гойвертс, Стивен Левитан, 2010</a></li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
