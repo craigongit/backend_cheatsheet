@@ -1,0 +1,4 @@
+site_name: Backend Cheatsheet 
+theme:
+  name: mkdocs
+  color_mode: dark
